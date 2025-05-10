@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Friends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img class="letra" src="images/letra.png" alt="Logo Friends">
+      </a>
+      <nav id="navegacion" class="navbar">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="subpaginas/personajes.html">Personajes</a></li>
+          <li><a href="subpaginas/episodios.html">Temporadas</a></li>
+          <li><a href="subpaginas/galeria.html">Galería</a></li>
+          <li><a href="subpaginas/tienda.html">Tienda</a></li>
+          <li><a href="subpaginas/exclusivo.html">Exclusivo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="slider">
+    <div class="mySlides"><img src="images/slide1.png" style="width: 100%" alt="Slide 1"></div>
+    <div class="mySlides"><img src="images/slide2.png" style="width: 100%" alt="Slide 2"></div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                  <li><a href="index.html">Inicio</a></li>
+                  <li><a href="subpaginas/personajes.html">Personajes</a></li>
+                  <li><a href="subpaginas/episodios.html">Temporadas</a></li>
+                  <li><a href="subpaginas/galeria.html">Galería</a></li>
+                  <li><a href="subpaginas/tienda.html">Tienda</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="footer-title-link">FRIENDS</a>
+            <div class="footer-info">
+                <p class="frase-unite">Porque ser fan tiene sus privilegios… <a href="subpaginas/exclusivo.html">¡Unite ahora!</a></p>
+                <p><a href="mailto:friends@gmail.com">friends@gmail.com</a></p>
+                <p>@2025 Friends. Todos los derechos reservados.</p>
+            </div>
+        </div>
+  </footer>
+
+  <script>
+    let slideIndex = 0; showSlides();
+    function showSlides() {let slides = document.getElementsByClassName("mySlides");
+        for (let i = 0; i < slides.length; i++) {slides[i].style.display = "none";}
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block"; setTimeout(showSlides, 2000); }
+    function moveSlide(n) {showSlides(slideIndex += n);}
+  </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const title = document.querySelector('.footer-title-link');
+      if (title) {
+        setTimeout(() => {
+          title.classList.add('animate');
+        }, 300);
+      }
+    });
+  </script>
+
+</body>
+</html>
