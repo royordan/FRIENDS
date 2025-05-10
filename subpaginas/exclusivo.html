@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Friends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/exclusivo.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="../index.html">
+        <img class="letra" src="../images/letra.png" alt="Logo Friends">
+      </a>
+      <nav id="navegacion" class="navbar">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="episodios.html">Temporadas</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="exclusivo.html">Exclusivo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1 style="text-align: center; margin-top: 40px; margin-bottom: 20px;">DETRÁS DE LA PUERTA</h1>
+
+    <section class="detras-puerta">
+      <div class="galeria-polas">
+        <img src="../images/polaroid1.jpg" alt="Polaroid 1">
+        <img src="../images/polaroid2.jpg" alt="Polaroid 2">
+        <img src="../images/polaroid3.jpg" alt="Polaroid 3">
+        <img src="../images/polaroid4.jpg" alt="Polaroid 4">
+        <img src="../images/polaroid5.jpg" alt="Polaroid 5">
+        <img src="../images/polaroid6.jpg" alt="Polaroid 6">
+      </div>
+    </section>
+
+    <h1 style="text-align: center; margin-top: 40px;">PARTICIPA</h1>
+
+    <div class="galeria" id="galeria">
+      <div class="imagen"><img src="../images/foto1.jpg" alt="Foto 1"></div>
+      <div class="imagen"><img src="../images/foto2.jpg" alt="Foto 2"></div>
+      <div class="imagen"><img src="../images/foto3.jpg" alt="Foto 2"></div>
+      <div class="imagen"><img src="../images/foto4.jpg" alt="Foto 2"></div>
+      <div class="imagen"><img src="../images/foto5.jpg" alt="Foto 2"></div>
+      <div class="imagen"><img src="../images/foto6.jpg" alt="Foto 2"></div>
+      <div class="imagen"><img src="../images/foto7.jpg" alt="Foto 2"></div>
+      <label for="agregar" class="boton-agregar">
+        <div class="mas">+</div>
+        <p>AGREGA EL TUYO</p>
+      </label>
+      <input type="file" id="agregar" accept="image/*" hidden>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="personajes.html">Personajes</a></li>
+                <li><a href="episodios.html">Temporadas</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="tienda.html">Tienda</a></li>
+                </ul>
+            </div>
+            <a href="../index.html" class="footer-title-link">FRIENDS</a>
+            <div class="footer-info">
+                <p class="frase-unite">Porque ser fan tiene sus privilegios… <a href="exclusivo.html">¡Unite ahora!</a></p>
+                <p><a href="mailto:friends@gmail.com">friends@gmail.com</a></p>
+                <p>@2025 Friends. Todos los derechos reservados.</p>
+            </div>
+        </div>
+  </footer>
+
+  <script>
+    document.getElementById('agregar').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imgDiv = document.createElement('div');
+        imgDiv.classList.add('imagen');
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = "Imagen subida";
+
+        imgDiv.appendChild(img);
+
+        const galeria = document.getElementById('galeria');
+        const botonAgregar = document.querySelector('.boton-agregar');
+        galeria.insertBefore(imgDiv, botonAgregar);
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const title = document.querySelector('.footer-title-link');
+      if (title) {
+        setTimeout(() => {
+          title.classList.add('animate');
+        }, 300);
+      }
+    });
+  </script>
+
+</body>
+</html>

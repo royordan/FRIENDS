@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Friends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/galeria.css">
+  <link rel="stylesheet" href="../css/lightbox.min.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="../index.html">
+        <img class="letra" src="../images/letra.png" alt="Logo Friends">
+      </a>
+      <nav id="navegacion" class="navbar">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="episodios.html">Temporadas</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="exclusivo.html">Exclusivo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1 style="text-align: center; margin-top: 40px; margin-bottom: 40PX;">GALERÍA DE RECUERDOS</h1>
+  </main>
+
+  <div class="cajagaleria">
+    <a href="../images/bodagrande.jpg" data-lightbox="fotos" title="Prueba de vestido">
+      <img src="../images/bodachica.jpg" width="375" height="279">
+    </a>
+    <a href="../images/parejagrande.jpg" data-lightbox="fotos" title="Chandler y Jenice">
+      <img src="../images/parejachica.jpg" width="375" height="279">
+    </a>
+    <a href="../images/fallidagrande.jpg" data-lightbox="fotos" title="Boda Ross y Emily">
+      <img src="../images/fallidachica.jpg" width="375" height="279">
+    </a>
+    <a href="../images/lavarapgrande.jpg" data-lightbox="fotos" title="Ross y Rachel">
+      <img src="../images/lavarapchica.jpg" width="375" height="279">
+    </a>
+    <a href="../images/bañogrande.jpg" data-lightbox="fotos" title="Embarazo Rachel">
+      <img src="../images/bodachica.jpg" width="375" height="279">
+    </a>
+    <a href="../images/emmagrande.jpg" data-lightbox="fotos" title="Nacimiento de Emma">
+      <img src="../images/emmachica.jpg" width="375" height="279">
+    </a>
+  </div>
+
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                  <li><a href="../index.html">Inicio</a></li>
+                  <li><a href="personajes.html">Personajes</a></li>
+                  <li><a href="episodios.html">Temporadas</a></li>
+                  <li><a href="galeria.html">Galería</a></li>
+                  <li><a href="tienda.html">Tienda</a></li>
+                </ul>
+            </div>
+            <a href="../index.html" class="footer-title-link">FRIENDS</a>
+            <div class="footer-info">
+                <p class="frase-unite">Porque ser fan tiene sus privilegios… <a href="exclusivo.html">¡Unite ahora!</a></p>
+                <p><a href="mailto:friends@gmail.com">friends@gmail.com</a></p>
+                <p>@2025 Friends. Todos los derechos reservados.</p>
+            </div>
+        </div>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const title = document.querySelector('.footer-title-link');
+      if (title) {
+        setTimeout(() => {
+          title.classList.add('animate');
+        }, 300);
+      }
+    });
+  </script>
+
+  <script src="../js/lightbox-plus-jquery.min.js"></script>
+
+</body>
+</html>

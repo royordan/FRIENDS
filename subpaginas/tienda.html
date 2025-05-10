@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Friends</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tienda.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="../index.html">
+        <img class="letra" src="../images/letra.png" alt="Logo Friends">
+      </a>
+      <nav id="navegacion" class="navbar">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="personajes.html">Personajes</a></li>
+          <li><a href="episodios.html">Temporadas</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="exclusivo.html">Exclusivo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="carrito-toggle" onclick="toggleCarrito()">🛒</div>
+
+    <h1 style="text-align: center; margin-top: 40px; margin-bottom: 20px;">TODO LO QUE UN VERDADERO FAN NECESITA</h1>
+
+    <div class="productos">
+      <div class="producto" data-id="1" data-nombre="Marco" data-precio="30">
+        <div class="precio">$30</div>
+        <img src="../images/marco.jpg" alt="Marco">
+        <p>Marco</p>
+        <button class="agregar-carrito">+</button>
+      </div>
+      <div class="producto" data-id="2" data-nombre="Taza Central Perk" data-precio="30">
+        <div class="precio">$30</div>
+        <img src="../images/taza.jpg" alt="Taza">
+        <p>Taza Central Perk</p>
+        <button class="agregar-carrito">+</button>
+      </div>
+      <div class="producto" data-id="3" data-nombre="Hugsy" data-precio="30">
+        <div class="precio">$30</div>
+        <img src="../images/hugsy.jpg" alt="Hugsy">
+        <p>Hugsy</p>
+        <button class="agregar-carrito">+</button>
+      </div>
+    </div>
+
+    <div id="carrito-panel" class="visible">
+      <h2>Carrito</h2>
+      <div id="carrito-items"></div>
+    </div>
+  
+  </main>
+
+  <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="personajes.html">Personajes</a></li>
+                    <li><a href="episodios.html">Temporadas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                </ul>
+            </div>
+            <a href="../index.html" class="footer-title-link">FRIENDS</a>
+            <div class="footer-info">
+                <p class="frase-unite">Porque ser fan tiene sus privilegios… <a href="exclusivo.html">¡Unite ahora!</a></p>
+                <p><a href="mailto:friends@gmail.com">friends@gmail.com</a></p>
+                <p>@2025 Friends. Todos los derechos reservados.</p>
+            </div>
+        </div>
+  </footer>
+
+  <script>
+    const carrito = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.agregar-carrito').forEach(boton => {
+      boton.addEventListener('click', e => {
+          const producto = e.target.closest('.producto');
+          const id = producto.dataset.id;
+          const nombre = producto.dataset.nombre;
+          const precio = parseFloat(producto.dataset.precio);
+          const existente = carrito.find(item => item.id === id);
+          if (existente) {
+            existente.cantidad++;
+          } else {
+            carrito.push({ id, nombre, precio, cantidad: 1 });
+          }
+          actualizarCarritoUI();
+        });
+      });
+    });
+
+    function actualizarCarritoUI() {
+      const carritoItems = document.getElementById('carrito-items');
+      carritoItems.innerHTML = '';
+
+      carrito.forEach((item, index) => {
+      const div = document.createElement('div');
+      div.className = 'carrito-item';
+      div.innerHTML = `
+      <strong>${item.nombre}</strong><br>
+      Cantidad: ${item.cantidad}<br>
+      Total: $${item.precio * item.cantidad}
+      <button class="eliminar-item" data-index="${index}">✕</button>` ;
+      carritoItems.appendChild(div);
+      });
+
+      const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0);
+      const totalDiv = document.createElement('div');
+      totalDiv.className = 'carrito-total';
+      totalDiv.innerHTML = `<strong>Total a pagar: $${total}</strong>`;
+      carritoItems.appendChild(totalDiv);
+
+      document.querySelectorAll('.eliminar-item').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const index = e.target.dataset.index;
+        carrito.splice(index, 1);
+        actualizarCarritoUI();
+      });
+      });
+    }
+
+    function toggleCarrito() {
+      const panel = document.getElementById('carrito-panel');
+      panel.classList.toggle('visible');
+    }
+  </script>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const title = document.querySelector('.footer-title-link');
+      if (title) {
+        setTimeout(() => {
+          title.classList.add('animate');
+        }, 300);
+      }
+    });
+  </script>
+
+</body>
+</html>
